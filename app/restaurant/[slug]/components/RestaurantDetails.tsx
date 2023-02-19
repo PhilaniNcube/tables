@@ -1,11 +1,15 @@
+
 import { Fragment } from "react";
 
-const RestaurantDetails = () => {
+interface Props {
+  restaurant: Database["public"]["Tables"]["Restaurant"]["Row"];
+}
+
+const RestaurantDetails = ({restaurant}:Props) => {
   return (
     <Fragment>
-
       <div className="mt-4 border-b pb-6">
-        <h1 className="font-bold text-6xl">Milesstone Grill</h1>
+        <h1 className="font-bold text-6xl">{restaurant.name}</h1>
       </div>
       {/* TITLE */} {/* RATING */}
       <div className="flex items-end">
@@ -20,12 +24,7 @@ const RestaurantDetails = () => {
       {/* RATING */} {/* DESCRIPTION */}
       <div className="mt-4">
         <p className="text-lg font-light">
-          The classics you love prepared with a perfect twist, all served up in
-          an atmosphere that feels just right. That&apos;s the Milestones
-          promise. So, whether you&apos;re celebrating a milestone, making the
-          most of Happy Hour or enjoying brunch with friends, you can be sure
-          that every Milestones experience is a simple and perfectly memorable
-          one.
+         {restaurant.description}
         </p>
       </div>
     </Fragment>
